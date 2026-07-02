@@ -1,6 +1,6 @@
 
 
-import { useState } from 'react'
+import { useState, useEffect  } from 'react'
 import reactLogo from '../assets/react.svg'
 import viteLogo from '../assets/vite.svg'
 import heroImg from '../assets/hero.png'
@@ -13,9 +13,18 @@ import Skills from '../components/Skills'
 import Portfolio from '../components/Portfolio'
 import Info from '../components/Info'
 import Feedbacks from '../components/Feedback'
+import axios from 'axios'
+
+
+const API = 'http://localhost:5000'
 
 export default function Inner(){
+  const [user, setUser] = useState(null)
 
+  useEffect(() => {
+    axios.get(`${API}/auth/me`, {withCredentials:true})
+    .then((res) => setUser(res.data).catch(() => setUser(null)))
+  }, [])
     return(
         <div className='wrapper flex h-screen flex-row overflow-hidden'>
       <div className='flex h-screen flex-col flex-shrink-0'>
@@ -30,7 +39,7 @@ export default function Inner(){
         <div  id='experience'><Experience/></div>
 
 
-        <div  id='skills'><Skills/></div>
+        <div  id='skills'><Skills user={user}/></div>
 
         <div id='portfolio'><Portfolio /></div>
 

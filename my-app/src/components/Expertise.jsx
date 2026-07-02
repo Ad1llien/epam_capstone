@@ -3,16 +3,22 @@
 
 const experience = [
     {
-        company: 'Google',
-        period: '2013-2014',
-        role: 'Front-end developer / php programmer',
-        description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringil'
+        company: 'Dostyq',
+        period: '2025-2025',
+        role: 'UI/UX Design',
+        description: 'Worked as an intern in UI/UX design'
     },
     {
-        company: 'Twitter',
-        period: '2012-2013',
-        role: 'Front-end developer / php programmer',
-        description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringil'
+        company: 'Softmax',
+        period: '2026-2026',
+        role: 'Front-end developer / Scraping Data',
+        description: 'During my internship, I worked on automated web data extraction using Puppeteer and Selenium, developing scripts to collect and process large-scale data from various web resources.'
+    },
+    {
+        company: 'EPAM',
+        period: '2025-2026',
+        role: 'Front-end developer + AI',
+        description: 'During my one-year internship at EPAM, I received continuous mentorship and full feedback from experienced company engineers, working on real-world projects and significantly improving my frontend development skills in a professional environment.'
     }
 
 ]
@@ -20,13 +26,13 @@ const experience = [
 export default function Experience(){
     return(
     <div className="flex flex-col gap-[20px] p-[20px]">
-        <div className="text-[#26C17E] font-bold text-[25px]">Experience</div>
+        <h2 className="text-[#26C17E] font-bold text-[25px]">Experience</h2>
 
         <div className="flex flex-col gap-[30px]">
             <div className="flex gap-[30px] mt-[20x] flex-col">
                 {experience.map((item, index) => (
-                <div className="flex gap-[30px]">
-                    <div key={index} className="w-auto ">
+                <div key={index} className="flex gap-[30px]">
+                    <div  className="w-auto ">
                        <div className="font-bold text-[16px]">{item.company}</div>
                        <div className="font-[400] text-[16px] w-auto whitespace-nowrap">{item.period}</div>
                     </div>

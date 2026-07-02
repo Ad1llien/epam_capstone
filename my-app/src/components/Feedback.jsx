@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 
 import axios from 'axios'
-
+import Skills from './Skills'
 
 const API = 'http://localhost:5000'
 
@@ -12,12 +12,12 @@ export default function Feedbacks(){
     const [feedback, setFeedback] = useState([])
     const [user,setUser] = useState(null);
     const [text, setText] = useState('')
-    
 
     useEffect(() => {
         axios.get(`${API}/auth/me`, {withCredentials: true})
         .then(res => setUser(res.data))
         .catch(() => setUser(null))
+
 
         axios.get(`${API}/feedbacks`, {withCredentials: true})
         .then(res => setFeedback(res.data))
@@ -59,7 +59,7 @@ export default function Feedbacks(){
 
     return(
         <div className=" p-[30px]">
-            <div className="text-[#26C17E] font-bold text-[25px]">Feedbacks</div>
+            <h2 className="text-[#26C17E] font-bold text-[25px]">Feedbacks</h2>
 
             <div className='flex flex-col gap-[20px] mb-[30px] mt-[20px]'>
 

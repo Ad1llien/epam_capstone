@@ -24,6 +24,8 @@ export default function NavBar({isOpen}){
     const navigate = useNavigate();
     const [active, setActive] = useState('about');
 
+    
+
     useEffect(() => {
         navItems.forEach(item => {
             const section = document.getElementById(item.id);
@@ -73,7 +75,7 @@ export default function NavBar({isOpen}){
 
             {isOpen && (
                 <div onClick={() => navigate('/')} className='text-white flex justify-center mt-[20px] cursor-pointer'>
-                    ← Go Back
+                    Go Back
                 </div>
             )}
 

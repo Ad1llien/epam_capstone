@@ -16,7 +16,7 @@ const contacts = [
    {
        icon: mail,
        primary: 'akadilzh2004kz@gmail.com',
-       href: 'mailto:akadilzh2004kz@gmail.com',
+       href: 'https://mail.google.com/mail/?view=cm&to=akadilzh2004kz@gmail.com',
    },
    {
        icon: instagram,
@@ -41,7 +41,7 @@ const contacts = [
 export default function Info() {
    return (
        <div className="flex flex-col gap-[20px] p-[20px]">
-           <div className="text-[#26C17E] font-bold text-[25px]">Contact</div>
+           <h2 className="text-[#26C17E] font-bold text-[25px]">Contact</h2>
            <div className='flex flex-col gap-[20px]'>
                {contacts.map((item, index) => (
                    <a 

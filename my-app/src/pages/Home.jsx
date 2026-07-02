@@ -14,8 +14,8 @@ export default function HomePage() {
                 </div>
                 <div className='flex flex-col items-center justify-center gap-2'>
                    <span className='text-white font-[600] text-[25px]'>Programmer. Creative. Innovator</span>
-                   <span className='text-white text-[14px] w-[500px] text-center flex items-center justify-center'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque </span>
-                   <button onClick={() => navigate('/resume')} className='text-white  px-[10px] py-[8px] bg-[#222935] rounded-[5px]'>Know More</button>
+                   <span className='text-white text-[14px] w-[500px] text-center flex items-center justify-center'>I am deeply passionate about technology and constantly driven to grow, innovate, and push boundaries. I believe that the best solutions come from combining creativity with technical expertise, and I am always looking for new challenges that help me evolve as a developer and as a person.</span>
+                   <button onClick={() => navigate('/resume')} className='text-white  px-[10px] py-[8px] bg-[#222935] rounded-[5px] cursor-pointer hover:bg-[#26C17E]'>Know More</button>
                 </div>
             
             </div>

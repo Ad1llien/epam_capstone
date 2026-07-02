@@ -5,9 +5,17 @@
 export default function Box(){
     return(
         <div className="p-[20px]">
-            <div className="text-[#26C17E]  font-[700] text-[25px]">About me</div>
+            <h2 className="text-[#26C17E]  font-[700] text-[25px]">About me</h2>
             <div className="font-[400] text-[14px] text-[#222935] mt-[20px]">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque
+            Меня зовут Ақәділ Жеңісұлы, я фронтенд разработчик из Казахстана.
+Специализируюсь на создании современных веб-приложений с использованием 
+React, JavaScript и Node.js. Увлекаюсь чистым кодом, красивым UI и 
+постоянно развиваюсь в сфере AI-интеграций.
+
+Сейчас обучаюсь в EPAM и работаю над проектами которые объединяют 
+фронтенд разработку с машинным обучением.
+
+Открыт к новым возможностям и интересным проектам. Экспериментирую с LLM, Computer Vision.           
             </div>
         </div>
     )

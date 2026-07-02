@@ -7,8 +7,9 @@ const initialSkills = [
     {name:'React', range:80},
     {name:'Node.js', range:60}
 ]
+const MY_EMAIL = 'akadilzh2004kz@gmail.com'
 
-export default function Skills(){ 
+export default function Skills({user}){ 
     const [tooltip, setToolTip] = useState({visible: false, x:0 , y:0, text:''})
     const [skills, setSkills] = useState(initialSkills);
     const [skillName, setSkillName] = useState('')
@@ -39,10 +40,13 @@ export default function Skills(){
     return(
         <div className="flex flex-col gap-[20px] p-[20px]">
             <div className="flex justify-between items-center">
-               <div className="text-[#26C17E] font-bold text-[25px]">Skills</div>
-               <button className="bg-[#222935] text-white px-[16px] py-[8px] rounded cursor-pointer" onClick={() => setIsOpen(!isOpen)}>OpenEdit</button>
+               <h2 className="text-[#26C17E] font-bold text-[25px]">Skills</h2>
+               {user?.email === MY_EMAIL && (
+                  <button className="bg-[#222935] hover:bg-[#26C17E] text-white px-[16px] py-[8px] rounded cursor-pointer" onClick={() => setIsOpen(!isOpen)}>Edit Skills</button>
+               )}
             </div>
-            {isOpen && (
+            
+            {isOpen && user?.email === MY_EMAIL &&  (
                 <div className="border border-[#26C17E] rounded p-[20px] mt-[20px] ">
                     <div className="flex items-center gap-[20px] mt-[20px] mb-[15px]">
                         <label className="w-[80px]" htmlFor="">Skill name: </label>
@@ -59,7 +63,7 @@ export default function Skills(){
                     </div>
                     
 
-                <button onClick={addSkill} className="bg-[#222935] text-white px-[16px] py-[8px] rounded cursor-pointe">Add skill</button>
+                <button onClick={addSkill} className="bg-[#222935] text-white px-[16px] py-[8px] hover:bg-[#26C17E] rounded cursor-pointe">Add skill</button>
             </div>
 
             )}
