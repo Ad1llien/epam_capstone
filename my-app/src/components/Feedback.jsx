@@ -21,7 +21,7 @@ export default function Feedbacks(){
 
         axios.get(`${API}/feedbacks`, {withCredentials: true})
 .then(res => setFeedback(res.data))
-.catch(setFeedback([]))
+.catch(() => setFeedback([]))
     }, [])
 
     const handleSubmit = async() => {
