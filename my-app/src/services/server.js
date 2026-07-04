@@ -53,6 +53,10 @@ export function makeServer({ environment = 'development' } = {}) {
                 skills = [...skills, newSkill]
                 return newSkill
             })
+
+            // Всё, что не /api/* (реальный бэкенд: /auth/*, /feedbacks и т.д.),
+            // Mirage не должен перехватывать — пропускаем в настоящую сеть.
+            this.passthrough()
         },
     })
 }
