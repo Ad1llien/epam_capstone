@@ -6,13 +6,14 @@ import me from '../icons/me.jpg'
 import left from '../icons/arrow-right.svg'
 import right from '../icons/arrow-left.svg'
 import { useEffect } from 'react'
+import { MOBILE_BREAKPOINT } from '../utils/constant'
 export default function Panel(){
 
     const [isOpen, setIsOpen] = useState(true);
 
     useEffect( () => {
         const handleResize = () => {
-            if(window.innerWidth < 768){
+            if(window.innerWidth < MOBILE_BREAKPOINT){
                 setIsOpen(false)
             }
             else{

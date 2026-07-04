@@ -8,8 +8,7 @@ export default function PhotoBox({size='100px', fontSize='16px'}){
     return(
         <div className="flex items-center flex-col gap-3">
             <img style={{width:size, height:size}} className="border border-2 border-white  rounded-full object-cover" src={me} alt="" />
-            <div style={{fontSize:fontSize}} className="text-[16px] font-bold flex text-center text-white">Akadil Zhengissuly</div>
+            <h1 style={{fontSize:fontSize}} className="text-[16px] font-bold flex text-center text-white">Akadil Zhengissuly</h1>
         </div> 
-
     )
 }

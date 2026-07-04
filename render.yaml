@@ -1,0 +1,42 @@
+services:
+  # --- Backend: Express + MongoDB + Google OAuth ---
+  - type: web
+    name: capstone-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGO_URI
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      # Заполнить ПОСЛЕ первого деплоя фронтенда — реальный URL сайта на Render.
+      - key: CLIENT_URL
+        sync: false
+      # Заполнить ПОСЛЕ первого деплоя бэкенда своим же URL + /auth/google/callback,
+      # и добавить его же в Google Cloud Console -> Authorized redirect URIs.
+      - key: GOOGLE_CALLBACK_URL
+        sync: false
+
+  # --- Frontend: Vite + React (статический сайт) ---
+  - type: web
+    name: capstone-frontend
+    runtime: static
+    rootDir: my-app
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      # Заполнить ПОСЛЕ первого деплоя бэкенда — реальный URL API на Render.
+      - key: VITE_API_URL
+        sync: false

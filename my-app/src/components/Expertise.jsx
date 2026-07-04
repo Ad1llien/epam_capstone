@@ -1,4 +1,4 @@
-
+import { PRIMARY_COLOR } from "../utils/constant"
 
 
 const experience = [
@@ -25,13 +25,13 @@ const experience = [
 
 export default function Experience(){
     return(
-    <div className="flex flex-col gap-[20px] p-[20px]">
-        <h2 className="text-[#26C17E] font-bold text-[25px]">Experience</h2>
+    <section className="flex flex-col gap-[20px] p-[20px]">
+        <h2 style={{ color: PRIMARY_COLOR }} className=" font-bold text-[25px]">Experience</h2>
 
         <div className="flex flex-col gap-[30px]">
             <div className="flex gap-[30px] mt-[20x] flex-col">
                 {experience.map((item, index) => (
-                <div key={index} className="flex gap-[30px]">
+                <article key={index} className="flex gap-[30px]">
                     <div  className="w-auto ">
                        <div className="font-bold text-[16px]">{item.company}</div>
                        <div className="font-[400] text-[16px] w-auto whitespace-nowrap">{item.period}</div>
@@ -40,12 +40,12 @@ export default function Experience(){
                        <div className="font-bold text-[16px]">{item.role}</div>
                        <div className="font-[400] text-[16px]">{item.description}</div>
                     </div>
-                </div>
+                </article>
                 ))}
                 
             </div>
             
         </div> 
-    </div>
+    </section>
     )
 }

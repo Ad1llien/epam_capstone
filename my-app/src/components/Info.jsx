@@ -6,7 +6,7 @@ import facebook from '../icons/facebook.svg'
 import instagram from '../icons/instagram.svg'
 import telegram from '../icons/telegram.svg'
 import linkedin from '../icons/linkedin.svg'
-
+import { PRIMARY_COLOR } from '../utils/constant'
 const contacts = [
    {
        icon: phoneIcon,
@@ -40,9 +40,9 @@ const contacts = [
 
 export default function Info() {
    return (
-       <div className="flex flex-col gap-[20px] p-[20px]">
-           <h2 className="text-[#26C17E] font-bold text-[25px]">Contact</h2>
-           <div className='flex flex-col gap-[20px]'>
+       <section className="flex flex-col gap-[20px] p-[20px]">
+           <h2 style={{ color: PRIMARY_COLOR }} className=" font-bold text-[25px]">Contact</h2>
+           <address className='flex flex-col gap-[20px]'>
                {contacts.map((item, index) => (
                    <a 
                        key={index}
@@ -59,7 +59,7 @@ export default function Info() {
                        </div>
                    </a>
                ))}
-           </div>
-       </div>
+           </address>
+       </section>
    )
 }

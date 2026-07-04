@@ -14,25 +14,39 @@ import Portfolio from '../components/Portfolio'
 import Info from '../components/Info'
 import Feedbacks from '../components/Feedback'
 import axios from 'axios'
+import { PRIMARY_COLOR, API_URL } from '../utils/constant'
 
-
-const API = 'http://localhost:5000'
+const API = API_URL
 
 export default function Inner(){
   const [user, setUser] = useState(null)
+  const Wrapper = ({id, children}) => {
+    return(
+      <div id={id}>
+        {children}
+      </div>
+    )
+  }
 
   useEffect(() => {
     axios.get(`${API}/auth/me`, {withCredentials:true})
-    .then((res) => setUser(res.data).catch(() => setUser(null)))
+.then((res) => setUser(res.data))
+.catch(() => setUser(null))
   }, [])
-    return(
-        <div className='wrapper flex h-screen flex-row overflow-hidden'>
-      <div className='flex h-screen flex-col flex-shrink-0'>
-        <Panel/>
-      </div>
-      <div className='flex flex-col flex-1 overflow-y-auto '>
 
-        <div id='about'><Box/></div>
+
+
+
+    return(
+      <div className='wrapper flex h-screen flex-row overflow-hidden'>
+      <header className='flex h-screen flex-col flex-shrink-0'>
+        <Panel/>
+      </header>
+      <div className='flex flex-col flex-1 overflow-y-auto '>
+        <Wrapper id='about'>
+          <Box/>
+        </Wrapper>
+        
 
         <div id='education'><Education/></div>
 

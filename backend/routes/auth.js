@@ -13,7 +13,7 @@ router.get('/google/callback',
     passport.authenticate('google', { failureRedirect: '/' }),
     (req, res) => {
         // Успешный вход — редиректим на фронт
-        res.redirect(process.env.CLIENT_URL)
+        res.redirect(process.env.CLIENT_URL || 'http://localhost:5173')
     }
 )
 
@@ -29,7 +29,7 @@ router.get('/me', (req, res) => {
 // Выйти
 router.get('/logout', (req, res) => {
     req.logout(() => {
-        res.redirect(process.env.CLIENT_URL)
+        res.redirect(process.env.CLIENT_URL || 'http://localhost:5173')
     })
 })
 

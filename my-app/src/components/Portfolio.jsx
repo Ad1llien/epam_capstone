@@ -1,12 +1,12 @@
 import p1 from '../icons/card_1.png'
 import p2 from '../icons/card_3.png'
 import { useState } from 'react';
-
+import { PRIMARY_COLOR } from '../utils/constant';
 function FlipCard({ image, title, text, link }) {
     const [flipped, setFlipped] = useState(false);
     return (
         <div
-            className="cursor-pointer relative w-[300px] h-[200px]"
+            className="cursor-pointer relative w-full aspect-[3/2]"
             style={{ perspective: '1000px' }}
             onClick={() => setFlipped(!flipped)} 
         >
@@ -31,7 +31,7 @@ function FlipCard({ image, title, text, link }) {
                         transform: 'rotateY(180deg)'
                     }}
                 >
-                    <div className="font-[700] text-[16px] text-[#26C17E]">{title}</div>
+                    <div style={{ color: PRIMARY_COLOR }} className="font-[700] text-[16px]">{title}</div>
                     <div className="text-[14px] text-gray-600">{text}</div>
                     
                        <a href={link}
@@ -90,9 +90,9 @@ export default function Portfolio(){
         <div className="p-[20px]">
         <h2 className="text-[#26C17E] font-bold text-[25px]">Portfolio</h2>
 
-        <div className="flex gap-[5px] mb-[16px]">
+        <section className="flex gap-[5px] mb-[16px]">
             {filters.map((filter, i) => (
-                <div key={filter} className="flex items-center gap-[5px]">
+                <article key={filter} className="flex items-center gap-[5px]">
                     <div
                         onClick={() => setActive(filter)}
                         className="cursor-pointer capitalize"
@@ -101,9 +101,9 @@ export default function Portfolio(){
                         {filter}
                     </div>
                     {i < filters.length - 1 && <label>/</label>}
-                </div>
+                </article>
             ))}
-        </div>
+        </section>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[16px] pb-[10px] w-0 min-w-full  ">
                         {filtered.map((card, i) => (

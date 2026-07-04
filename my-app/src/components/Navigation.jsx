@@ -8,6 +8,7 @@ import feedbacks from '../icons/Feedbacks.svg'
 import {useState} from 'react'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { PRIMARY_COLOR } from '../utils/constant'
 
 const navItems = [
     { id: 'about',      label: 'About me',   icon: profile },
@@ -60,18 +61,23 @@ export default function NavBar({isOpen}){
 
     return(
         <div className="flex flex-col w-full mt-[20px] mb-[20px]" >
-            <div>
+            <nav>
+            <ul>
+
             {navItems.map((item) => (
-                <div className='flex flex-row gap-[20px] p-[20px] items-center cursor-pointer' key={item.id} onClick={() => handleClick(item.id)}>
+                    <li className='flex flex-row gap-[20px] p-[20px] items-center cursor-pointer' key={item.id} onClick={() => handleClick(item.id)}>
                     <img className='w-[14px] h-[14px]' src={item.icon} alt="" style={{filter:active === item.id ? 'invert(59%) sepia(97%) saturate(400%) hue-rotate(110deg)' : 'invert(45%) sepia(8%) saturate(500%) hue-rotate(180deg)'}}/>
                     {isOpen && (
-                            <div style={{ color: active === item.id ? '#26C17E' : '#667081' }}>
+                            <div  style={{ color: active === item.id ? PRIMARY_COLOR : '#667081' }}>
                                 {item.label}
                             </div>
-                        )}                
-                </div>
+                    )}                
+                </li>
+                
             ))}
-            </div>
+            </ul>
+
+            </nav>
 
             {isOpen && (
                 <div onClick={() => navigate('/')} className='text-white flex justify-center mt-[20px] cursor-pointer'>

@@ -2,8 +2,8 @@ import {useState, useEffect} from 'react'
 
 import axios from 'axios'
 import Skills from './Skills'
-
-const API = 'http://localhost:5000'
+import { PRIMARY_COLOR, API_URL } from '../utils/constant'
+const API = API_URL
 
 
 
@@ -20,8 +20,8 @@ export default function Feedbacks(){
 
 
         axios.get(`${API}/feedbacks`, {withCredentials: true})
-        .then(res => setFeedback(res.data))
-        .catch(setFeedback([]))
+.then(res => setFeedback(res.data))
+.catch(setFeedback([]))
     }, [])
 
     const handleSubmit = async() => {
@@ -59,12 +59,12 @@ export default function Feedbacks(){
 
     return(
         <div className=" p-[30px]">
-            <h2 className="text-[#26C17E] font-bold text-[25px]">Feedbacks</h2>
+            <h2 style={{ color: PRIMARY_COLOR }} className=" font-bold text-[25px]">Feedbacks</h2>
 
             <div className='flex flex-col gap-[20px] mb-[30px] mt-[20px]'>
 
                 {feedback.map(f=>(
-                    <div key={f._id} className=''>
+                    <blockquote key={f._id} className=''>
                         <div className='bg-gray-100 rounded-[8px] p-[16px] text-[14px] text-gray-700'>
                            {f.text}
                         </div>
@@ -72,31 +72,31 @@ export default function Feedbacks(){
                         <div className='flex items-center mt-[10px] gap-[10px]'>
                           <img src={f.author?.photo} alt={f.author?.name} className="w-[40px] h-[40px] rounded-full object-cover"/>
                           <span className='text-[14px] font-[400]'>{f.author?.name},</span>
-                          <span className='text-[14px] text-[#26C17E]'>{f.author?.email}</span>
+                          <span style={{ color: PRIMARY_COLOR }} className='text-[14px]'>{f.author?.email}</span>
                         </div>
                         {user && user._id === f.author?._id && (
                             <button onClick={() => handleDelete(f._id)} className='ml-auto text-red-400 text-12px hover:text-red-600'>Delete</button>
 
                         )}
-                    </div>
+                    </blockquote>
 
                 ))}
             </div>
 
             {user ? (
-                <div className='flex flex-col gap-[10px] '>
+                <cite className='flex flex-col gap-[10px] '>
                     <div className='flex items-center gap-[10px] mb-[8px]'>
                         <img src={user.photo} alt="" className='w-[32px] h-[32px] rounded-full' />
                         <span className='text-[12px] font-[400] '>
-                            `${user.name},`,
+                            {`${user.name},`},
                         </span>
                         <a href={`${API}/auth/logout`} className='ml-auto text-[12px] text-gray-400 hover:text-gray-600'>
                             Logout
                         </a>
                     </div>
                     <textarea value={text} onChange={ (e) => setText(e.target.value)} placeholder='Write a feedback' name="" id="" cols="30" rows="10" className='border border-gray-200 rounded-[8px] p-[12px] text-[14px] resize-none h-[100px]'></textarea>
-                    <button onClick={handleSubmit} className='bg-[#26C17E] text-white rounded-[8px] py-[10px] text-[14px]'>Отправить</button>
-                </div>
+                    <button style={{ color: PRIMARY_COLOR }} onClick={handleSubmit} className='text-white rounded-[8px] py-[10px] text-[14px]'>Отправить</button>
+                </cite>
             ):(
                 <div className='flex flex-col items-center gap-[16px] p-[32px] border border-gray-200 rounded-[16px] bg-white'>
         <div className='text-[18px] font-[600] text-gray-800'>
