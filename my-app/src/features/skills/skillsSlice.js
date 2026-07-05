@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { API_URL } from '../../utils/constant'
 
 const loadFromStorage = () => {
     try {
@@ -14,7 +15,7 @@ const loadFromStorage = () => {
 export const fetchSkills = createAsyncThunk(
     'skills/fetchSkills',
     async () => {
-        const res = await axios.get('/api/skills')
+        const res = await axios.get(`${API_URL}/skills`)
         return res.data
     }
 )
@@ -22,7 +23,7 @@ export const fetchSkills = createAsyncThunk(
 export const addSkill = createAsyncThunk(
     'skills/addSkill',
     async (skill) => {
-        const res = await axios.post('/api/skills', skill)
+        const res = await axios.post(`${API_URL}/skills`, skill, { withCredentials: true })
         return res.data
     }
 )

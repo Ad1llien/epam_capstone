@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { API_URL } from '../../utils/constant'
 
 export const fetchEducations = createAsyncThunk(
     'education/fetchEducations',
     async () => {
-        const res = await axios.get('/api/educations')
+        const res = await axios.get(`${API_URL}/educations`)
         return res.data
     }
 )

@@ -47,6 +47,14 @@ services:
       - type: rewrite
         source: /feedbacks/*
         destination: https://capstone-backend-v768.onrender.com/feedbacks/*
+      # Education/Skills теперь берутся с реального бэкенда (MirageJS удалён),
+      # проксируем их через свой домен так же, как /auth и /feedbacks.
+      - type: rewrite
+        source: /educations
+        destination: https://capstone-backend-v768.onrender.com/educations
+      - type: rewrite
+        source: /skills
+        destination: https://capstone-backend-v768.onrender.com/skills
       - type: rewrite
         source: /*
         destination: /index.html
