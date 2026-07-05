@@ -34,10 +34,25 @@ services:
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     routes:
+      # Прячем backend позади домена фронтенда — иначе браузер считает
+      # capstone-frontend/capstone-backend разными сайтами (onrender.com
+      # в публичном суффиксном списке) и блокирует cross-site session cookie.
+      # ВАЖНО: если backend пересоздать и его адрес изменится — поправить URL ниже.
+      - type: rewrite
+        source: /auth/*
+        destination: https://capstone-backend-v768.onrender.com/auth/*
+      - type: rewrite
+        source: /feedbacks
+        destination: https://capstone-backend-v768.onrender.com/feedbacks
+      - type: rewrite
+        source: /feedbacks/*
+        destination: https://capstone-backend-v768.onrender.com/feedbacks/*
       - type: rewrite
         source: /*
         destination: /index.html
     envVars:
-      # Заполнить ПОСЛЕ первого деплоя бэкенда — реальный URL API на Render.
+      # Указываем на СВОЙ ЖЕ домен (не на backend!) — запросы к /auth/* и
+      # /feedbacks/* перехватят rewrite-правила выше и уйдут на backend
+      # прозрачно для браузера, сохраняя cookie как first-party.
       - key: VITE_API_URL
         sync: false
